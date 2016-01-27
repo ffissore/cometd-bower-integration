@@ -11,7 +11,7 @@ fi
 
 if [ "$POM_DIR" == "" ]
 then
-    POM_DIR="$DIR/../cometd"
+    POM_DIR="$DIR/cometd"
 fi
 
 cd $REPO
@@ -37,4 +37,4 @@ fi
 
 git commit -m"Releasing $VERSION" || (echo Already up to date; exit 1)
 git tag $VERSION
-git push origin master --tags
+git push "https://${GH_TOKEN}@github.com/ffissore/bower-cometd.git" master --tags > /dev/null 2>&1
