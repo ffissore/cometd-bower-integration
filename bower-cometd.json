@@ -1,0 +1,25 @@
+{
+  "name": "cometd",
+  "homepage": "https://github.com/cometd/cometd",
+  "authors": [
+    "Federico Fissore <federico@fissore.org>"
+  ],
+  "description": "The CometD project is a scalable web messaging bus that uses WebSocket and HTTP AJAX push technology patterns known as \"Comet\" techniques",
+  "main": [
+    "org/cometd.js",
+    "org/cometd/AckExtension.js",
+    "org/cometd/ReloadExtension.js",
+    "org/cometd/TimeSyncExtension.js"
+  ],
+  "keywords": [
+    "comet"
+  ],
+  "license": "Apache-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
