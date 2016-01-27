@@ -3,11 +3,15 @@
 set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-POM_DIR="$DIR/.."
 
-if [ "$BOWER_COMETD_REPO_FOLDER" == "" ]
+if [ "$REPO" == "" ]
 then
     REPO="$DIR/bower-cometd-jquery"
+fi
+
+if [ "$POM_DIR" == "" ]
+then
+    POM_DIR="$DIR/../cometd"
 fi
 
 cd $REPO
@@ -20,6 +24,7 @@ cd $REPO
 mkdir -p $REPO/jquery
 cp -R $JS_DIR/jquery/jquery.cometd*.js $REPO/jquery
 cp $DIR/bower-cometd-jquery.json $REPO/bower.json
+cp $DIR/README-bower-cometd-jquery.md $REPO/README.md
 
 git add .
 

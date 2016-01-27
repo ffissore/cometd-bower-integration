@@ -12,14 +12,18 @@
     "org/cometd/TimeSyncExtension.js"
   ],
   "keywords": [
+    "cometd",
+    "scalable",
+    "web",
+    "messaging",
+    "bus",
+    "websocket",
+    "ajax",
+    "push",
     "comet"
   ],
   "license": "Apache-2.0",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "**/.*"
   ]
 }

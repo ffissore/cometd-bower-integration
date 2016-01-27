@@ -3,11 +3,15 @@
 set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-POM_DIR="$DIR/.."
 
-if [ "$BOWER_COMETD_REPO_FOLDER" == "" ]
+if [ "$REPO" == "" ]
 then
     REPO="$DIR/bower-cometd"
+fi
+
+if [ "$POM_DIR" == "" ]
+then
+    POM_DIR="$DIR/../cometd"
 fi
 
 cd $REPO
@@ -19,6 +23,7 @@ JS_DIR=`pwd`
 cd $REPO
 cp -R $JS_DIR/org* $REPO
 cp $DIR/bower-cometd.json $REPO/bower.json
+cp $DIR/README-bower-cometd.md $REPO/README.md
 
 git add .
 
