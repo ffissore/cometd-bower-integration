@@ -1,4 +1,20 @@
 #!/usr/bin/env bash
 
-git config --global user.email "federico@fissore.org"
-git config --global user.name "Federico Fissore"
+set -e
+set -x
+
+function setup_git_name {
+    FOLDER=$1
+    EMAIL=$2
+    NAME=$3
+
+    cd $FOLDER
+    git config user.email "$EMAIL"
+    git config user.name "$NAME"
+    cd -
+}
+
+setup_git_name "bower-cometd" "federico@fissore.org" "Federico Fissore"
+setup_git_name "bower-cometd-jquery" "federico@fissore.org" "Federico Fissore"
+setup_git_name "bower-cometd-dojo" "federico@fissore.org" "Federico Fissore"
+

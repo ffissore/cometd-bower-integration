@@ -1,16 +1,16 @@
 {
-  "name": "cometd-binding-jquery",
+  "name": "cometd-binding-dojo",
   "homepage": "https://github.com/cometd/cometd",
   "authors": [
     "Federico Fissore <federico@fissore.org>"
   ],
   "description": "The CometD project is a scalable web messaging bus that uses WebSocket and HTTP AJAX push technology patterns known as \"Comet\" techniques",
   "main": [
-    "jquery/jquery.cometd.js",
-    "jquery/jquery.cometd-ack.js",
-    "jquery/jquery.cometd-reload.js",
-    "jquery/jquery.cometd-timestamp.js",
-    "jquery/jquery.cometd-timesync.js"
+    "cometd.js",
+    "cometd/ack.js",
+    "cometd/reload.js",
+    "cometd/timestamp.js",
+    "cometd/timesync.js"
   ],
   "moduleType": [
     "amd",
@@ -33,6 +33,6 @@
   ],
   "dependencies": {
     "cometd": "=__BOWER_TAG__",
-    "jquery": "~2.1.4"
+    "dojo": "~1.10.4"
   }
 }

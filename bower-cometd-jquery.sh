@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
 
 set -e
+set -x
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [ "$REPO" == "" ]
-then
-    REPO="$DIR/bower-cometd-jquery"
-fi
-
-if [ "$POM_DIR" == "" ]
-then
-    POM_DIR="$DIR/cometd"
-fi
+POM_DIR="$DIR/cometd"
+REPO="$DIR/bower-cometd-jquery"
 
 cd $REPO
 git rm -rf * || echo
@@ -23,19 +17,20 @@ JS_DIR=`pwd`
 cd $REPO
 mkdir -p $REPO/jquery
 cp -R $JS_DIR/jquery/jquery.cometd*.js $REPO/jquery
-cp $DIR/bower-cometd-jquery.json $REPO/bower.json
 cp $DIR/README-bower-cometd-jquery.md $REPO/README.md
+sed "s/__BOWER_TAG__/$BOWER_TAG/g" $DIR/bower-cometd-jquery.json > $REPO/bower.json
 
 git add .
 
-VERSION=`grep "<version>" $POM_DIR/pom.xml | head -n 1 | tr -d '[[:space:]]' | sed 's|<version>||g' | sed 's|</version>||g'`
+POM_VERSION=`grep "<version>" $POM_DIR/pom.xml | head -n 1 | tr -d '[[:space:]]' | sed 's|<version>||g' | sed 's|</version>||g'`
 
-if [[ $VERSION == *"SNAPSHOT"* ]]
+if [[ $POM_VERSION == *"SNAPSHOT"* ]]
 then
     echo Snapshot version. Exiting
     exit
 fi
 
-git commit -m"Releasing $VERSION" || (echo Already up to date; exit 1)
-git tag $VERSION
+git commit -m"Releasing $BOWER_TAG (cometd version $POM_VERSION)" || echo
+git tag $BOWER_TAG
 git push "https://${GH_TOKEN}@github.com/ffissore/bower-cometd-jquery.git" master --tags > /dev/null 2>&1
+

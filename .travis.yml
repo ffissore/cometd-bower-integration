@@ -4,6 +4,7 @@ jdk:
 env:
   global:
     - COMETD_TAG: "3.0.9"
+    - BOWER_TAG: "3.0.9.1"
     - secure: "MH1bddeKzjeSY2xJzWPQyi6qv+d2o9lBVobSIpM49VJYlhDI29M//+pwxiI2N6iZciIf+kYRZ8dx2JcyJK8ZFXt0ucKjD8Qd7VqGCSUiX83PHiC0ThLdOkECrD6b/DwKK2WQqEQe8Yx6k20cXbUVcgH3HTdv5sPAbKKGm4f6AQGkeGw1NYMQbMP7IpFwkqeDD8RyXoqnTj+QM90R4AUDNUhkDKJy15x0DNxzPPM9Jsv0ikK4YLBO+Z6rAyTjvfuj1fnMZzt5stn6PYI+4leuDfBEOjFAa8dHHIcMAu06K09hmcw7d8p1/uPAfWUD+6+0a/SryqJMs+TkkivunWfsiPeYFKpbbCboRN9GVImqPASN1Y/741M6cWbJJBA4WglBKQGDxZtTkftb1hkP8lrtLIs7Zq06Amuui9aLvL9sFyaoi8LiPry1a8f7Ln2pkkWG5KQuhUfp2klVbEpq/g1lOMUzYvIuKhR3eg678HdFaHuuWvsoM2Myw0CutJr4bo6wngPNtp2KlWFwyQ6Ac7qUL+TeU9fHf98AWhqiacYn9j21SNympGNFZd9uBP92yZlwOVd5JHlaIal7CDorA48L1VjhX8Eoqe/LP9SNQ5xQymawXBie2gEzJHCALY6OfnA4QSBeIGpbKJGpv5HHEGwRo1MLu2OttDCKIQHesz7+ucY="
 before_install: ./clone_repos.sh
 install: ./package_cometd.sh
@@ -11,3 +12,5 @@ before_script: ./setup_git_name.sh
 script:
   - ./bower-cometd.sh || echo
   - ./bower-cometd-jquery.sh || echo
+  - ./bower-cometd-dojo.sh || echo
+
